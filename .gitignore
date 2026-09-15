@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Credentials / secrets - NEVER commit these
+.streamlit/secrets.toml
+*.secret
+.env
+
+# Data artifacts (regenerate with scripts/generate_sample_data.py)
+sample_data/*.tmp
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/cache/
+
+# Notebook checkpoints
+.ipynb_checkpoints/

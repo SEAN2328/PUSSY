@@ -1,0 +1,6 @@
+# Fraud Detection Agent - runtime dependencies (Python 3.11+)
+numpy>=1.26
+pandas>=2.2
+scikit-learn>=1.5
+matplotlib>=3.8
+streamlit>=1.32   # optional - only needed for the interactive dashboard (app.py)
