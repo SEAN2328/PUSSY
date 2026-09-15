@@ -21,7 +21,19 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
-from frauddetect import AgentConfig, FraudAgent  # noqa: E402
+try:  # noqa: E402
+    from frauddetect import AgentConfig, FraudAgent
+except ModuleNotFoundError as exc:
+    st.error(
+        "A required Python module is missing on this server. "
+        f"Import failed with: **{exc}**\n\n"
+        "If the missing module is `frauddetect`: the `frauddetect/` folder "
+        "from this repo was not deployed. Deploy from the repo **root** so "
+        "`app.py` and `frauddetect/` are in the same directory, then redeploy. "
+        "If it is a dependency (`numpy`, `pandas`, `scikit-learn`, "
+        "`matplotlib`): check the server install log for which package failed."
+    )
+    st.stop()
 
 st.set_page_config(page_title="Fraud Detection Agent", page_icon=":mag:",
                    layout="wide", initial_sidebar_state="expanded")
